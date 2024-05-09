@@ -10,6 +10,8 @@ vim.cmd("set noshowmode")
 vim.cmd("set clipboard+=unnamedplus")
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
+vim.o.background = "dark"
+vim.opt.termguicolors = true
 
 vim.keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
 

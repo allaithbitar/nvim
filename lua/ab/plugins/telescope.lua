@@ -35,7 +35,7 @@ return {
 			end, opts)
 
 			vim.keymap.set("n", "<leader>sw", "<cmd>Telescope grep_string<cr>", opts)
-			vim.keymap.set("n", "<leader>swt", "<cmd>TodoTelescope<cr>", opts)
+			-- vim.keymap.set("n", "<leader>swt", "<cmd>TodoTelescope<cr>", opts)
 		end,
 	},
 	{
