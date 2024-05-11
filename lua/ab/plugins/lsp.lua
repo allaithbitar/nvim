@@ -96,6 +96,10 @@ return {
 				capabilities = capabilities,
 				on_attach = on_attach,
 			})
+			lspconfig.astro.setup({
+				capabilities = capabilities,
+				on_attach = on_attach,
+			})
 		end,
 	},
 	{
@@ -118,6 +122,12 @@ return {
 					null_ls.builtins.formatting.prettierd,
 					null_ls.builtins.diagnostics.eslint_d,
 				},
+			})
+			vim.api.nvim_create_autocmd("LspAttach", {
+				callback = function(args)
+					local client = vim.lsp.get_client_by_id(args.data.client_id)
+					client.server_capabilities.semanticTokensProvider = nil
+				end,
 			})
 		end,
 	},

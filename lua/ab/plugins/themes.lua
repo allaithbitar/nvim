@@ -118,4 +118,7 @@ return {
 			})
 		end,
 	},
+	{
+		"oxfist/night-owl.nvim",
+	},
 }
