@@ -9,7 +9,7 @@ return {
 		"williamboman/mason-lspconfig.nvim",
 		config = function()
 			require("mason-lspconfig").setup({
-				ensure_installed = { "lua_ls", "tsserver", "eslint", "cssls" },
+				ensure_installed = { "lua_ls", "tsserver", "eslint", "cssls", "jsonls", "tailwindcss" },
 			})
 		end,
 	},
@@ -111,7 +111,7 @@ return {
 		},
 		config = function()
 			require("mason-null-ls").setup({
-				ensure_installed = { "stylua", "eslint_d", "prettierd" },
+				ensure_installed = { "stylua", "eslint_d", "prettierd", "shfmt" },
 				automatic_installation = true,
 			})
 			local null_ls = require("null-ls")
@@ -120,6 +120,7 @@ return {
 				sources = {
 					null_ls.builtins.formatting.stylua,
 					null_ls.builtins.formatting.prettierd,
+					null_ls.builtins.formatting.shfmt,
 					null_ls.builtins.diagnostics.eslint_d,
 				},
 			})
