@@ -17,6 +17,7 @@ return {
 				yaml = { "prettierd" },
 				markdown = { "prettierd" },
 				lua = { "stylua" },
+				sh = { "shfmt" },
 			},
 			format_on_save = {
 				lsp_fallback = true,
