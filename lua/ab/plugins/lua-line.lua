@@ -32,9 +32,10 @@ return {
 	config = function()
 		require("lualine").setup({
 			options = {
+				theme = "auto",
 				-- theme = "tokyonight",
 				disabled_filetypes = {
-					statusline = { "neo-tree" },
+					statusline = { "NvimTree" },
 				},
 				-- component_separators = "|",
 				-- section_separators = { left = "", right = "" },
@@ -50,6 +51,7 @@ return {
 				-- 		{ "location", separator = { right = "" }, left_padding = 2 },
 				-- 	},
 				-- },
+
 				inactive_sections = {
 					lualine_a = { "filename" },
 					lualine_b = {},
@@ -59,7 +61,7 @@ return {
 					lualine_z = { "location" },
 				},
 				tabline = {},
-				extensions = {},
+				extensions = { "trouble", "toggleterm" },
 			},
 		})
 	end,

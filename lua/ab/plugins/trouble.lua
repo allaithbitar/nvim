@@ -9,4 +9,8 @@ return {
 		-- { "<leader>tl", "<cmd>TroubleToggle loclist<CR>", desc = "Open trouble location list" },
 		-- { "<leader>xtt", "<cmd>TodoTrouble<CR>", desc = "Open todos in trouble" },
 	},
+	opts = {
+		position = "right", -- position of the list can be: bottom, top, left, right
+		width = 75,
+	},
 }

@@ -26,7 +26,7 @@ return {
 			})
 
 			mason_lspconfig.setup({
-				ensure_installed = { "lua_ls", "tsserver", "eslint", "cssls", "jsonls", "tailwindcss" },
+				ensure_installed = { "lua_ls", "tsserver", "eslint", "cssls", "jsonls", "tailwindcss", "html" },
 			})
 
 			mason_tool_installer.setup({
@@ -35,34 +35,3 @@ return {
 		end,
 	},
 }
--- {
--- 	"williamboman/mason-lspconfig.nvim",
--- 	config = function()
--- 		require("mason-lspconfig").setup({})
--- 	end,
--- },
-
--- 	{
--- 		"jay-babu/mason-null-ls.nvim",
--- 		lazy = true,
--- 		dependencies = {
--- 			"williamboman/mason.nvim",
--- 			"nvimtools/none-ls.nvim",
--- 		},
--- 		config = function()
--- 			require("mason-null-ls").setup({
--- 				automatic_installation = true,
--- 			})
--- 			local null_ls = require("null-ls")
---
--- 			null_ls.setup({
--- 				sources = {
--- 					null_ls.builtins.formatting.stylua,
--- 					null_ls.builtins.formatting.prettierd,
--- 					null_ls.builtins.formatting.shfmt,
--- 					null_ls.builtins.diagnostics.eslint_d,
--- 				},
--- 			})
--- 		end,
--- 	},
--- }

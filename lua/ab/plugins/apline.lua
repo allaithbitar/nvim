@@ -20,7 +20,7 @@ return {
 		-- Set menu
 		dashboard.section.buttons.val = {
 			-- dashboard.button("e", "  > New File", "<cmd>ene<CR>"),
-			dashboard.button("SPC e", "  > Toggle file explorer", ":Neotree filesystem reveal toggle left<CR>"),
+			dashboard.button("SPC e", "  > Toggle file explorer", ":NvimTreeToggle<CR>"),
 			dashboard.button("CRTL p", "󰱼 > Find File", "<cmd>Telescope find_files<CR>"),
 			dashboard.button("SPC st", "  > Find Word", "<cmd>Telescope live_grep<CR>"),
 			-- dashboard.button("SPC wr", "󰁯  > Restore Session For Current Directory", "<cmd>SessionRestore<CR>"),

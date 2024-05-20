@@ -10,22 +10,30 @@ return {
 		vim.g.loaded_netrw = 1
 		vim.g.loaded_netrwPlugin = 1
 
-		-- optionally enable 24-bit colour
-
 		-- OR setup with some options
 		nvimtree.setup({
+
 			sort = {
 				sorter = "case_sensitive",
 			},
 			view = {
-				width = 30,
+				width = 50,
+				-- adaptive_size = true,
 			},
 			renderer = {
 				group_empty = true,
 			},
 			filters = {
-				dotfiles = true,
+				-- dotfiles = true,
 			},
 		})
+		local nvim_tree_view = require("nvim-tree.view")
+		vim.keymap.set("n", "<leader>e", function()
+			if nvim_tree_view.is_visible() then
+				vim.cmd([[NvimTreeToggle]])
+			else
+				vim.cmd([[NvimTreeFindFile]])
+			end
+		end, { silent = true })
 	end,
 }
