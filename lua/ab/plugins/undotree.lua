@@ -1,8 +1,9 @@
 return {
-	{
-		"mbbill/undotree",
-		config = function()
-			vim.cmd([[
+
+	"mbbill/undotree",
+	name = "undo-tree-vim",
+	config = function()
+		vim.cmd([[
         if has("persistent_undo")
            let target_path = expand('~/.undodir')
             " create the directory and any parent directories
@@ -14,6 +15,6 @@ return {
             set undofile
         endif
         ]])
-		end,
-	},
+		vim.keymap.set("n", "<leader>uh", ":UndotreeToggle<CR>", { noremap = true, silent = true })
+	end,
 }

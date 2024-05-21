@@ -35,7 +35,7 @@ return {
 				theme = "auto",
 				-- theme = "tokyonight",
 				disabled_filetypes = {
-					statusline = { "NvimTree" },
+					statusline = { "NvimTree", "undotree", "diffpanel" },
 				},
 				-- component_separators = "|",
 				-- section_separators = { left = "", right = "" },

@@ -15,6 +15,12 @@ return {
 						text_align = "center",
 						separator = true,
 					},
+					{
+						filetype = "undotree",
+						text = "File Historty",
+						text_align = "center",
+						separator = true,
+					},
 				},
 			},
 		})
