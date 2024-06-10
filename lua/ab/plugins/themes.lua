@@ -27,14 +27,14 @@ return {
 		"ellisonleao/gruvbox.nvim",
 		config = function()
 			require("gruvbox").setup({
-				transparent_mode = true,
+				-- transparent_mode = true,
 				contrast = "hard",
 				italic = {
 					strings = false,
-					emphasis = true,
-					comments = true,
-					operators = true,
-					folds = true,
+					emphasis = false,
+					comments = false,
+					operators = false,
+					folds = false,
 				},
 			})
 		end,
@@ -71,10 +71,10 @@ return {
 		"folke/tokyonight.nvim",
 		config = function()
 			require("tokyonight").setup({
-				transparent = true,
-				styles = {
+				transparent = false,
+				--[[ 	styles = {
 					sidebars = "transparent",
-				},
+				}, ]]
 			})
 		end,
 	},
@@ -113,9 +113,8 @@ return {
 	{
 		"Mofiqul/dracula.nvim",
 		config = function()
-			require("dracula").setup({
-				transparent_bg = true,
-			})
+			require("dracula").setup()
+			-- transparent_bg = true,
 		end,
 	},
 	{

@@ -26,7 +26,17 @@ return {
 			})
 
 			mason_lspconfig.setup({
-				ensure_installed = { "lua_ls", "tsserver", "eslint", "cssls", "jsonls", "tailwindcss", "html" },
+				ensure_installed = {
+					"lua_ls",
+					"tsserver",
+					"eslint",
+					"cssls",
+					"jsonls",
+					"tailwindcss",
+					"html",
+					"angularls@17.3.2",
+				},
+				-- automatic_installation = true,
 			})
 
 			mason_tool_installer.setup({

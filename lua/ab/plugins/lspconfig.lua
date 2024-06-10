@@ -57,6 +57,9 @@ return {
 				opts.desc = "Show documentation for what is under cursor"
 				keymap.set("n", "K", vim.lsp.buf.hover, opts) -- show documentation for what is under cursor
 
+				-- opts.desc = "Show function signature"
+				-- keymap.set("n", "gs", vim.lsp.buf.signature_help, opts) -- show documentation for what is under cursor
+
 				-- opts.desc = "Restart LSP"
 				-- keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts) -- mapping to restart lsp if necessary
 
@@ -73,6 +76,12 @@ return {
 		})
 		lspconfig.eslint.setup({
 			capabilities = capabilities,
+			settings = {
+				settings = {
+					workingDirectory = { mode = "location" },
+				},
+			},
+			root_dir = lspconfig.util.find_git_ancestor,
 		})
 		lspconfig.cssls.setup({
 			capabilities = capabilities,
@@ -86,7 +95,45 @@ return {
 		lspconfig.astro.setup({
 			capabilities = capabilities,
 		})
-		lspconfig.rust_analyzer.setup({
+		lspconfig.prismals.setup({
+			capabilities = capabilities,
+		})
+
+		-- Angular -- start
+		--[[ 	local ok, mason_registry = pcall(require, "mason-registry")
+		if not ok then
+			vim.notify("mason-registry could not be loaded")
+			return
+		end
+
+		local angularls_path = mason_registry.get_package("angular-language-server"):get_install_path()
+
+		local cmd = {
+			"ngserver",
+			"--stdio",
+			"--tsProbeLocations",
+			table.concat({
+				angularls_path,
+				vim.uv.cwd(),
+			}, ","),
+			"--ngProbeLocations",
+			table.concat({
+				angularls_path .. "/node_modules/@angular/language-server",
+				vim.uv.cwd(),
+			}, ","),
+		} ]]
+
+		lspconfig.angularls.setup({
+			capabilities = capabilities,
+			--[[ 	cmd = cmd,
+			on_new_config = function(new_config)
+				new_config.cmd = cmd
+			end, ]]
+		})
+
+		-- Angular -- end
+
+		--[[ lspconfig.rust_analyzer.setup({
 			capabilities = capabilities,
 			filetypes = { "rust" },
 			root_dir = lspconfig.util.root_pattern("Cargo.toml"),
@@ -97,6 +144,6 @@ return {
 					},
 				},
 			},
-		})
+		}) ]]
 	end,
 }

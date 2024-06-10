@@ -23,6 +23,14 @@ vim.keymap.set("n", "<leader>sh", "<C-w>s", { desc = "Split window horizontally"
 vim.keymap.set("n", "<leader>se", "<C-w>=", { desc = "Make splits equal size" }) -- make split windows equal width & height
 vim.keymap.set("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close current split" }) -- close current split window
 
+-- highlight yanked text for 200ms using the "Visual" highlight group
+vim.cmd([[
+augroup highlight_yank
+autocmd!
+au TextYankPost * silent! lua vim.highlight.on_yank({higroup="Visual", timeout=200})
+augroup END
+]])
+
 -- vim.keymap.set("n", "y", '"+y')
 -- vim.keymap.set("n", "yy", '"+yy')
 -- vim.keymap.set("n", "Y", '"+Y')
