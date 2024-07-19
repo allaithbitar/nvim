@@ -13,6 +13,11 @@ return {
 
 		local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
+		capabilities.textDocument.foldingRange = {
+			dynamicRegistration = false,
+			lineFoldingOnly = true,
+		}
+
 		vim.api.nvim_create_autocmd("LspAttach", {
 			callback = function(args)
 				local opts = { silent = true, noremap = true, buffer = args.buf }
@@ -79,6 +84,10 @@ return {
 			settings = {
 				settings = {
 					workingDirectory = { mode = "location" },
+					-- experimental = {
+					-- 	-- allows to use flat config format
+					-- 	useFlatConfig = true,
+					-- },
 				},
 			},
 			root_dir = lspconfig.util.find_git_ancestor,

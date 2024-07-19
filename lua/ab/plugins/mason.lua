@@ -34,7 +34,7 @@ return {
 					"jsonls",
 					"tailwindcss",
 					"html",
-					"angularls@17.3.2",
+					"angularls",
 				},
 				-- automatic_installation = true,
 			})

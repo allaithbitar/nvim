@@ -2,6 +2,12 @@ return {
 	{
 		"catppuccin/nvim",
 		name = "catppuccin",
+		config = function()
+			require("catppuccin").setup({
+				no_italic = true,
+			})
+			-- code
+		end,
 	},
 	{
 		"dasupradyumna/midnight.nvim",
@@ -119,5 +125,19 @@ return {
 	},
 	{
 		"oxfist/night-owl.nvim",
+	},
+	{
+		"rebelot/kanagawa.nvim",
+	},
+	{
+		"rose-pine/neovim",
+		as = "rose-pine",
+		config = function()
+			require("rose-pine").setup({
+				styles = {
+					italic = false,
+				},
+			})
+		end,
 	},
 }
