@@ -1,7 +1,7 @@
 return {
-
 	"mbbill/undotree",
 	name = "undo-tree-vim",
+	event = "bufReadPre",
 	config = function()
 		vim.cmd([[
         if has("persistent_undo")

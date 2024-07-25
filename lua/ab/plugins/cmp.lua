@@ -1,3 +1,21 @@
+local function tooBig(bufnr)
+	local max_filesize = 10 * 1024 -- 100 KB
+	local check_stats = (vim.uv or vim.loop).fs_stat
+	local ok, stats = pcall(check_stats, vim.api.nvim_buf_get_name(bufnr))
+	if ok and stats and stats.size > max_filesize then
+		return true
+	else
+		return false
+	end
+end
+
+local preferred_sources = {
+	{ name = "nvim_lsp" },
+	{ name = "luasnip" }, -- snippets
+	{ name = "path" }, -- file system paths
+	-- { name = "buffer", keyword_length = 4 }, -- text within current buffer
+}
+
 return {
 	"hrsh7th/nvim-cmp",
 	event = "InsertEnter",
@@ -25,10 +43,44 @@ return {
 			completion = {
 				completeopt = "menu,menuone,preview,noselect",
 			},
+			performance = {
+				max_view_entries = 20,
+			},
 			snippet = { -- configure how nvim-cmp interacts with snippet engine
 				expand = function(args)
 					luasnip.lsp_expand(args.body)
 				end,
+			},
+			-- formatting = {
+			-- 				format = lspkind.cmp_format({
+			-- 					maxwidth = 50,
+			-- 					ellipsis_char = "...",
+			-- 				}),
+			-- 			},
+			formatting = {
+				fields = { "abbr", "kind", "menu" },
+				format = lspkind.cmp_format({
+					mode = "symbol_text",
+					maxwidth = 50,
+					ellipsis_char = "...",
+					menu = {
+						nvim_lsp = "[LSP]",
+						path = "[Path]",
+						luasnip = "[LuaSnip]",
+						nvim_lua = "[Lua]",
+						buffer = "[Buffer]",
+						treesitter = "[Treesitter]",
+						cmp_git = "[Git]",
+						tmux = "[Tmux]",
+						rg = "[Rg]",
+						dictionary = "[Dictionary]",
+					},
+				}),
+				expandable_indicator = true,
+			},
+			window = {
+				completion = cmp.config.window.bordered(),
+				documentation = cmp.config.window.bordered(),
 			},
 			mapping = cmp.mapping.preset.insert({
 				["<C-k>"] = cmp.mapping.select_prev_item(), -- previous suggestion
@@ -50,43 +102,44 @@ return {
 			}),
 
 			-- sources for autocompletion
+			sources = cmp.config.sources(preferred_sources),
+		})
+
+		cmp.setup.filetype("gitcommit", {
 			sources = cmp.config.sources({
-				{ name = "nvim_lsp" },
-				{ name = "luasnip" }, -- snippets
-				{ name = "buffer" }, -- text within current buffer
-				{ name = "path" }, -- file system paths
+				{ name = "git" },
+			}, {
+				{ name = "buffer" },
 			}),
+		})
 
-			cmp.setup.filetype("gitcommit", {
-				sources = cmp.config.sources({
-					{ name = "git" },
-				}, {
-					{ name = "buffer" },
-				}),
-			}),
-
-			cmp.setup.cmdline({ "/", "?" }, {
-				mapping = cmp.mapping.preset.cmdline(),
-				sources = {
-					{ name = "buffer" },
-				},
-			}),
-
-			cmp.setup.cmdline(":", {
-				mapping = cmp.mapping.preset.cmdline(),
-				sources = cmp.config.sources({
-					{ name = "path" },
-				}, {
-					{ name = "cmdline" },
-				}),
-			}),
-
-			formatting = {
-				format = lspkind.cmp_format({
-					maxwidth = 50,
-					ellipsis_char = "...",
-				}),
+		cmp.setup.cmdline({ "/", "?" }, {
+			mapping = cmp.mapping.preset.cmdline(),
+			sources = {
+				{ name = "buffer", keyword_length = 4 },
 			},
 		})
+
+		cmp.setup.cmdline(":", {
+			mapping = cmp.mapping.preset.cmdline(),
+			sources = cmp.config.sources({
+				{ name = "path" },
+			}, {
+				{ name = "cmdline" },
+			}),
+		})
+
+		vim.api.nvim_create_autocmd("BufRead", {
+			group = vim.api.nvim_create_augroup("CmpBufferDisableGrp", { clear = true }),
+			callback = function(ev)
+				local sources = preferred_sources
+				if not tooBig(ev.buf) then
+					sources[#sources + 1] = { name = "buffer", keyword_length = 4 }
+				end
+				cmp.setup.buffer({
+					sources = cmp.config.sources(sources),
+				})
+			end,
+		}) -- create a treshhold for big files (end)
 	end,
 }

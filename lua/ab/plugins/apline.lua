@@ -22,10 +22,10 @@ return {
 			-- dashboard.button("e", "  > New File", "<cmd>ene<CR>"),
 			--
 			-- dashboard.button("SPC e", "  > Toggle file explorer", ":NvimTreeToggle<CR>"),
-			dashboard.button("SPC e", "  > Toggle file explorer", ":Neotree filesystem reveal toggle left<CR>"),
-			dashboard.button("CRTL p", "󰱼 > Find File", "<cmd>Telescope find_files<CR>"),
-			dashboard.button("SPC st", "  > Find Word", "<cmd>Telescope live_grep<CR>"),
-			-- dashboard.button("SPC wr", "󰁯  > Restore Session For Current Directory", "<cmd>SessionRestore<CR>"),
+			dashboard.button("SPC e", "  > Toggle file explorer"),
+			dashboard.button("CRTL p", "󰱼 > Find File"),
+			dashboard.button("SPC st", "  > Find Word"),
+			dashboard.button("SPC sr", "󰁯  > Restore Session For Current Directory"),
 			dashboard.button("q", " > Quit NVIM", "<cmd>qa<CR>"),
 		}
 

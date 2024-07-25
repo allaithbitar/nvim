@@ -1,6 +1,7 @@
 return {
 	"akinsho/bufferline.nvim",
 	dependencies = { "nvim-tree/nvim-web-devicons" },
+	event = "BufReadPre",
 	version = "*",
 	config = function()
 		require("bufferline").setup({
@@ -18,6 +19,12 @@ return {
 					{
 						filetype = "undotree",
 						text = "File Historty",
+						text_align = "center",
+						separator = true,
+					},
+					{
+						filetype = "Outline",
+						text = "Symbols",
 						text_align = "center",
 						separator = true,
 					},

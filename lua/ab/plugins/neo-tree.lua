@@ -7,12 +7,11 @@ return {
 		"MunifTanjim/nui.nvim",
 		-- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
 	},
-	config = function()
-		vim.keymap.set(
-			"n",
+	keys = {
+		{
 			"<leader>e",
-			":Neotree filesystem reveal toggle left<CR>",
-			{ silent = true, noremap = true }
-		)
-	end,
+			"<cmd>Neotree filesystem reveal toggle left<CR>",
+			desc = "Files Explorer",
+		},
+	},
 }

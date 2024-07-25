@@ -6,3 +6,4 @@ vim.g.sonokai_better_performance = 1
 -- vim.g.nightflyTransparent = true
 
 vim.cmd([[colorscheme catppuccin-mocha]])
+-- vim.cmd([[colorscheme gruvbox]])

@@ -1,5 +1,6 @@
 return {
 	"ojroques/nvim-bufdel",
+	event = "BufReadPre",
 	config = function()
 		require("bufdel").setup({
 			next = "tabs",
