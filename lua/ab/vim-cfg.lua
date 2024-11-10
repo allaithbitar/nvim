@@ -8,6 +8,7 @@ vim.cmd("set shiftwidth=2")
 vim.cmd("set nu")
 vim.cmd("set noshowmode")
 vim.cmd("set clipboard+=unnamedplus")
+vim.cmd("set signcolumn=number")
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 vim.o.background = "dark"

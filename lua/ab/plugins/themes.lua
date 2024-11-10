@@ -27,6 +27,9 @@ return {
 	},
 	{
 		"Tsuzat/NeoSolarized.nvim",
+		opts = {
+			style = "dark", -- "dark" or "light",
+		},
 		lazy = true,
 	},
 	{
@@ -42,9 +45,9 @@ return {
 		lazy = true,
 		config = function()
 			require("gruvbox").setup({
-
-				-- transparent_mode = true,
-				-- contrast = "hard",
+				terminal_colors = true,
+				transparent_mode = false,
+				contrast = "hard",
 				italic = {
 					strings = false,
 					emphasis = false,
@@ -93,10 +96,12 @@ return {
 		lazy = true,
 		config = function()
 			require("tokyonight").setup({
-				transparent = false,
-				--[[ 	styles = {
+				cache = true,
+				transparent = true,
+				styles = {
 					sidebars = "transparent",
-				}, ]]
+					floats = "transparent",
+				},
 			})
 		end,
 	},
@@ -158,10 +163,11 @@ return {
 	{
 		"Mofiqul/dracula.nvim",
 		lazy = true,
-		config = function()
-			require("dracula").setup()
-			-- transparent_bg = true,
-		end,
+		-- config = function()
+		-- 	require("dracula").setup({
+		-- 	})
+		--     -- transparent_bg = true,
+		-- end,
 	},
 	{
 		"oxfist/night-owl.nvim",
@@ -174,13 +180,46 @@ return {
 	{
 		"rose-pine/neovim",
 		as = "rose-pine",
-		lazy = true,
+		priority = 1000,
 		config = function()
+			-- require("solarized-osaka").setup({
+			-- 	variant = "",
+			-- 	background = "",
+			-- 	ui_contrast = "high",
+			-- })
 			require("rose-pine").setup({
+				variant = "moon",
 				styles = {
 					italic = false,
+					transparency = false,
 				},
 			})
 		end,
 	},
+	{
+		"craftzdog/solarized-osaka.nvim",
+		config = function()
+			require("solarized-osaka").setup({
+				transparent = true,
+				styles = {
+					sidebars = "transparent",
+					floats = "transparent",
+				},
+			})
+		end,
+		lazy = false,
+	},
+	{
+		"olivercederborg/poimandres.nvim",
+		lazy = true,
+		-- priority = 1000,
+		config = function()
+			require("poimandres").setup({
+				-- leave this setup function empty for default config
+				-- or refer to the configuration section
+				-- for configuration options
+			})
+		end,
+	},
+	{ "RRethy/base16-nvim" },
 }

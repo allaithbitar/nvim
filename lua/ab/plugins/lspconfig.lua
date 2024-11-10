@@ -76,22 +76,22 @@ return {
 		lspconfig.lua_ls.setup({
 			capabilities = capabilities,
 		})
-		lspconfig.tsserver.setup({
+		lspconfig.ts_ls.setup({
 			capabilities = capabilities,
 		})
-		lspconfig.eslint.setup({
-			capabilities = capabilities,
-			settings = {
-				settings = {
-					workingDirectory = { mode = "location" },
-					-- experimental = {
-					-- 	-- allows to use flat config format
-					-- 	useFlatConfig = true,
-					-- },
-				},
-			},
-			root_dir = lspconfig.util.find_git_ancestor,
-		})
+		-- lspconfig.eslint.setup({
+		-- 	capabilities = capabilities,
+		-- 	settings = {
+		-- 		settings = {
+		-- 			workingDirectory = { mode = "location" },
+		-- 			-- experimental = {
+		-- 			-- 	-- allows to use flat config format
+		-- 			-- 	useFlatConfig = true,
+		-- 			-- },
+		-- 		},
+		-- 	},
+		-- 	root_dir = lspconfig.util.find_git_ancestor,
+		-- })
 		lspconfig.cssls.setup({
 			capabilities = capabilities,
 		})
@@ -109,7 +109,7 @@ return {
 		})
 
 		-- Angular -- start
-		--[[ 	local ok, mason_registry = pcall(require, "mason-registry")
+		local ok, mason_registry = pcall(require, "mason-registry")
 		if not ok then
 			vim.notify("mason-registry could not be loaded")
 			return
@@ -130,14 +130,14 @@ return {
 				angularls_path .. "/node_modules/@angular/language-server",
 				vim.uv.cwd(),
 			}, ","),
-		} ]]
+		}
 
 		lspconfig.angularls.setup({
 			capabilities = capabilities,
-			--[[ 	cmd = cmd,
+			cmd = cmd,
 			on_new_config = function(new_config)
 				new_config.cmd = cmd
-			end, ]]
+			end,
 		})
 
 		-- Angular -- end

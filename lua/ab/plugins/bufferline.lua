@@ -7,7 +7,10 @@ return {
 		require("bufferline").setup({
 			options = {
 				mode = "buffers",
-				-- separator_style = "thick",
+				-- indicator = {
+				-- 	style = "underline",
+				-- },
+				separator_style = "thick",
 				diagnostics = "nvim_lsp",
 				offsets = {
 					{

@@ -45,6 +45,8 @@ return {
 			},
 			performance = {
 				max_view_entries = 20,
+				debounce = 0,
+				throttle = 0,
 			},
 			snippet = { -- configure how nvim-cmp interacts with snippet engine
 				expand = function(args)
