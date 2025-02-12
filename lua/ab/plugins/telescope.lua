@@ -13,7 +13,13 @@ return {
 			local opts = { silent = true, noremap = true }
 			local telescope = require("telescope")
 			telescope.setup({
-				defaults = { file_ignore_patterns = { "node_modules" }, path_display = { "smart" } },
+				defaults = {
+					file_ignore_patterns = { "node_modules" },
+					path_display = { "smart" },
+					preview = {
+						filesize_limit = 0.5555,
+					},
+				},
 			})
 
 			telescope.load_extension("fzf")
