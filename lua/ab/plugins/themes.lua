@@ -79,7 +79,6 @@ return {
 		config = function()
 			require("ofirkai").setup({
 				remove_italics = true,
-				theme = "dark_blue",
 			})
 		end,
 	},
@@ -104,6 +103,18 @@ return {
 				},
 			})
 		end,
+	},
+	{
+		"vague2k/vague.nvim",
+		lazy = true,
+	},
+	{
+		"drewxs/ash.nvim",
+		lazy = true,
+	},
+	{
+		"tiagovla/tokyodark.nvim",
+		lazy = true,
 	},
 	{
 		"nyoom-engineering/oxocarbon.nvim",
@@ -199,13 +210,15 @@ return {
 	{
 		"craftzdog/solarized-osaka.nvim",
 		config = function()
-			require("solarized-osaka").setup({
-				transparent = true,
-				styles = {
-					sidebars = "transparent",
-					floats = "transparent",
-				},
-			})
+			require("solarized-osaka").setup(
+				--     {
+				-- transparent = true,
+				-- styles = {
+				-- 	sidebars = "transparent",
+				-- 	floats = "transparent",
+				-- },
+				-- }
+			)
 		end,
 		lazy = false,
 	},
