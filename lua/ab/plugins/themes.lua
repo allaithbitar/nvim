@@ -46,7 +46,7 @@ return {
 		config = function()
 			require("gruvbox").setup({
 				terminal_colors = true,
-				transparent_mode = false,
+				transparent_mode = true,
 				contrast = "hard",
 				italic = {
 					strings = false,
@@ -235,4 +235,5 @@ return {
 		end,
 	},
 	{ "RRethy/base16-nvim" },
+	{ "AhmedAbdulrahman/aylin.vim", branch = "0.5-nvim" },
 }
