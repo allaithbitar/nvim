@@ -15,6 +15,6 @@ return {
             set undofile
         endif
         ]])
-		vim.keymap.set("n", "<leader>uh", ":UndotreeToggle<CR>", { noremap = true, silent = true })
+		vim.keymap.set("n", "<leader>ut", ":UndotreeToggle<CR>", { noremap = true, silent = true })
 	end,
 }

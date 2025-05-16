@@ -4,5 +4,4 @@ return {
 	-- keys = {
 	-- 	{ "-", "<CMD>Oil<CR>", desc = "Oil" },
 	-- },
-	-- opts = {},
 }

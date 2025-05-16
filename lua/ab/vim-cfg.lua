@@ -1,6 +1,6 @@
 vim.api.nvim_set_keymap("n", "<C-s>", ":w<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("i", "<C-s>", "<C-o>:w<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<C-w>", "<CR>", { silent = true, noremap = true })
+-- vim.api.nvim_set_keymap("i", "<C-s>", "<C-o>:w<CR>", { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap("n", "<C-w>", "<CR>", { silent = true, noremap = true })
 vim.cmd("set expandtab")
 vim.cmd("set tabstop=2")
 vim.cmd("set softtabstop=2")

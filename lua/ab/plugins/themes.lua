@@ -235,5 +235,9 @@ return {
 		end,
 	},
 	{ "RRethy/base16-nvim" },
-	{ "AhmedAbdulrahman/aylin.vim", branch = "0.5-nvim" },
+	{ "AhmedAbdulrahman/aylin.vim", branch = "0.5-nvim", lazy = true },
+	{
+		"Yazeed1s/oh-lucy.nvim",
+		lazy = true,
+	},
 }

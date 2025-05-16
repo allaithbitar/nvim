@@ -6,6 +6,7 @@ return {
 			"williamboman/mason-lspconfig.nvim",
 			"WhoIsSethDaniel/mason-tool-installer.nvim",
 		},
+		branch = "v1.x",
 		config = function()
 			-- import mason
 			local mason = require("mason")
@@ -13,7 +14,7 @@ return {
 			-- import mason-lspconfig
 			-- local mason_lspconfig = require("mason-lspconfig")
 
-			-- local mason_tool_installer = require("mason-tool-installer")
+			local mason_tool_installer = require("mason-tool-installer")
 
 			-- enable mason and configure icons
 			mason.setup({
@@ -27,9 +28,10 @@ return {
 			})
 
 			-- mason_lspconfig.setup({
+			-- 	automatic_enable = false,
 			-- 	ensure_installed = {
 			-- 		"lua_ls",
-			-- 		"tsserver",
+			-- 		"ts_ls",
 			-- 		"eslint",
 			-- 		"cssls",
 			-- 		"jsonls",
@@ -37,12 +39,12 @@ return {
 			-- 		"html",
 			-- 		"angularls",
 			-- 	},
-			-- 	-- automatic_installation = true,
+			-- 	automatic_installation = true,
 			-- })
 			--
-			-- mason_tool_installer.setup({
-			-- 	ensure_installed = { "stylua", "eslint_d", "prettierd", "shfmt" },
-			-- })
+			mason_tool_installer.setup({
+				ensure_installed = { "stylua", "eslint_d", "prettierd", "shfmt" },
+			})
 		end,
 	},
 }

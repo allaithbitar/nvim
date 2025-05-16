@@ -16,11 +16,11 @@ return {
 			},
 		})
 	end,
-	keys = {
-		{
-			"<leader>e",
-			"<cmd>Neotree filesystem reveal toggle right<CR>",
-			desc = "Files Explorer",
-		},
-	},
+	-- keys = {
+	-- 	{
+	-- 		"<leader>e",
+	-- 		"<cmd>Neotree filesystem reveal toggle right<CR>",
+	-- 		desc = "Files Explorer",
+	-- 	},
+	-- },
 }

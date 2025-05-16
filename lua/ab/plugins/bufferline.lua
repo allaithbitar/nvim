@@ -8,7 +8,7 @@ return {
 			options = {
 				mode = "buffers",
 				-- indicator = {
-				-- 	style = "underline",
+				-- 	style = "icon",
 				-- },
 				separator_style = "thick",
 				diagnostics = "nvim_lsp",

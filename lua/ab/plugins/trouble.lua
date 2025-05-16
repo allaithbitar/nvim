@@ -17,4 +17,24 @@ return {
 		position = "bottom", -- position of the list can be: bottom, top, left, right
 		height = 50,
 	},
+	specs = {
+		"folke/snacks.nvim",
+		opts = function(_, opts)
+			return vim.tbl_deep_extend("force", opts or {}, {
+				picker = {
+					actions = require("trouble.sources.snacks").actions,
+					win = {
+						input = {
+							keys = {
+								["<c-t>"] = {
+									"trouble_open",
+									mode = { "n", "i" },
+								},
+							},
+						},
+					},
+				},
+			})
+		end,
+	},
 }
