@@ -200,6 +200,13 @@ return {
 			-- })
 			require("rose-pine").setup({
 				variant = "moon",
+				dark_variant = "moon",
+				palette = {
+					moon = {
+						base = "#000000",
+					},
+				},
+
 				styles = {
 					italic = false,
 					transparency = false,
