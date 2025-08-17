@@ -81,6 +81,7 @@ return {
 				"<c-p>",
 				function()
 					Snacks.picker.smart({
+						exclude = { ".git", "node_modules" },
 						filter = {
 							paths = {
 								node_modules = false,

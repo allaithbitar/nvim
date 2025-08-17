@@ -6,15 +6,18 @@
 -- vim.g.neosolarized_contrast = "high"
 -- vim.g.nightflyTransparent = true
 
--- vim.cmd([[colorscheme solarized-osaka]])
+vim.cmd([[colorscheme solarized-osaka]])
 -- vim.cmd([[colorscheme rose-pine]])
 -- vim.cmd([[colorscheme poimandres]])
 -- vim.cmd([[colorscheme oh-lucy-evening]])
 -- vim.cmd([[colorscheme moonfly]])
-vim.cmd([[colorscheme gruvbox]])
+-- vim.cmd([[colorscheme gruvbox]])
 
 vim.g.snacks_animate = false
 -- local opts = { silent = true, noremap = true }
 vim.keymap.set("n", "<leader>sr", function()
 	require("persistence").load()
 end, { desc = "Restore Session" })
+
+
+vim.keymap.set({ "n", "v" }, "<leader>cc", "<cmd>CodeCompanionChat Toggle<cr>", { noremap = true, silent = true })
