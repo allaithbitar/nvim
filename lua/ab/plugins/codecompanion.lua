@@ -1,13 +1,13 @@
 return {
-	{
-		"Davidyz/VectorCode",
-		version = "*", -- optional, depending on whether you're on nightly or release
-		build = "pipx upgrade vectorcode", -- optional but recommended. This keeps your CLI up-to-date.
-		dependencies = { "nvim-lua/plenary.nvim" },
-		opts = {
-			timeout_ms = 30000,
-		},
-	},
+	-- {
+	-- 	"Davidyz/VectorCode",
+	-- 	version = "*", -- optional, depending on whether you're on nightly or release
+	-- 	build = "pipx upgrade vectorcode", -- optional but recommended. This keeps your CLI up-to-date.
+	-- 	dependencies = { "nvim-lua/plenary.nvim" },
+	-- 	opts = {
+	-- 		timeout_ms = 30000,
+	-- 	},
+	-- },
 	{
 		"olimorris/codecompanion.nvim",
 		opts = {},
@@ -16,8 +16,8 @@ return {
 				strategies = {
 					-- Change the default chat adapter
 					chat = {
-						adapter = "qwen3_4b",
-						inline = "qwen_coder",
+						adapter = "gemini",
+						inline = "gemini",
 					},
 				},
 				adapters = {
@@ -80,11 +80,11 @@ return {
 
 						-- Options to customize the UI of the chat buffer
 						window = {
-							layout = "vertical", -- float|vertical|horizontal|buffer
+							layout = "float", -- float|vertical|horizontal|buffer
 							position = "right", -- left|right|top|bottom (nil will default depending on vim.opt.plitright|vim.opt.splitbelow)
 							border = "single",
 							height = 0.8,
-							width = 0.45,
+							width = 0.8,
 							relative = "editor",
 							full_height = true, -- when set to false, vsplit will be used to open the chat buffer vs. botright/topleft vsplit
 							opts = {
@@ -111,20 +111,20 @@ return {
 					},
 				},
 				extensions = {
-					vectorcode = {
-						opts = {
-							add_tool = true,
-							add_slash_command = true,
-						},
-					},
-					mcphub = {
-						callback = "mcphub.extensions.codecompanion",
-						opts = {
-							show_result_in_chat = true, -- Show mcp tool results in chat
-							make_vars = true, -- Convert resources to #variables
-							make_slash_commands = true, -- Add prompts as /slash commands
-						},
-					},
+					-- vectorcode = {
+					-- 	opts = {
+					-- 		add_tool = true,
+					-- 		add_slash_command = true,
+					-- 	},
+					-- },
+					-- mcphub = {
+					-- 	callback = "mcphub.extensions.codecompanion",
+					-- 	opts = {
+					-- 		show_result_in_chat = true, -- Show mcp tool results in chat
+					-- 		make_vars = true, -- Convert resources to #variables
+					-- 		make_slash_commands = true, -- Add prompts as /slash commands
+					-- 	},
+					-- },
 				},
 			})
 		end,
