@@ -7,14 +7,7 @@ return {
 		-- "davidmh/cspell.nvim",
 	},
 	config = function()
-		require("mason-null-ls").setup({
-			automatic_installation = true,
-			ensure_installed = {
-				"eslint_d",
-				-- "codespell",
-				-- "cspell",
-			},
-		})
+		require("mason-null-ls").setup()
 		local null_ls = require("null-ls")
 		-- local cspell = require("cspell")
 		-- local b = null_ls.builtins

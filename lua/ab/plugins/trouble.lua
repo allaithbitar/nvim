@@ -14,8 +14,8 @@ return {
 		-- { "<leader>xtt", "<cmd>TodoTrouble<CR>", desc = "Open todos in trouble" },
 	},
 	opts = {
-		position = "bottom", -- position of the list can be: bottom, top, left, right
-		height = 50,
+		-- 	position = "bottom", -- position of the list can be: bottom, top, left, right
+		height = 100,
 	},
 	specs = {
 		"folke/snacks.nvim",

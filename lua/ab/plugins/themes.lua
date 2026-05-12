@@ -217,15 +217,7 @@ return {
 	{
 		"craftzdog/solarized-osaka.nvim",
 		config = function()
-			require("solarized-osaka").setup(
-				--     {
-				-- transparent = true,
-				-- styles = {
-				-- 	sidebars = "transparent",
-				-- 	floats = "transparent",
-				-- },
-				-- }
-			)
+			require("solarized-osaka").setup({ transparent = false })
 		end,
 		lazy = false,
 	},
@@ -241,10 +233,17 @@ return {
 			})
 		end,
 	},
-	{ "RRethy/base16-nvim" },
+	-- { "RRethy/base16-nvim" },
 	{ "AhmedAbdulrahman/aylin.vim", branch = "0.5-nvim", lazy = true },
 	{
 		"Yazeed1s/oh-lucy.nvim",
 		lazy = true,
+	},
+	{
+		"ankushbhagats/pastel.nvim",
+		lazy = true,
+		-- priority = 1000, -- load immediately at startup
+		-- opts = {}, -- your configuration comes here
+		-- config = true, -- call setup function with provided opts
 	},
 }

@@ -35,6 +35,7 @@ return {
 					"lua",
 					"astro",
 					"gitignore",
+					"php",
 				},
 				-- incremental_selection = {
 				-- 	enable = true,

@@ -62,10 +62,10 @@ return {
 			explorer = { enabled = true },
 			picker = {
 				enabled = true,
-				layout = "dropdown",
+				layout = "ivy",
 				ui_select = true,
 			},
-			indent = { enabled = false },
+			indent = { enabled = true },
 			input = { enabled = true },
 			notifier = {
 				enabled = true,
@@ -228,13 +228,48 @@ return {
 						ignored = true,
 						layout = {
 							layout = {
-								position = "right",
+								position = "left",
 							},
 						},
 						exclude = { ".git", "node_modules" },
 					})
 				end,
 				desc = "Files Explorer",
+			},
+			{
+				"<leader>gb",
+				function()
+					Snacks.picker.git_branches()
+				end,
+				desc = "Git Banches",
+			},
+			{
+				"<leader>gL",
+				function()
+					Snacks.picker.git_log()
+				end,
+				desc = "Git Log",
+			},
+			{
+				"<leader>gll",
+				function()
+					Snacks.picker.git_log_line()
+				end,
+				desc = "Git Log Line",
+			},
+			{
+				"<leader>glf",
+				function()
+					Snacks.picker.git_log_file()
+				end,
+				desc = "Git Log File",
+			},
+			{
+				"<leader>gD",
+				function()
+					Snacks.picker.git_diff()
+				end,
+				desc = "Git Diff",
 			},
 		},
 		-- config = function()

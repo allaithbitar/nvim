@@ -6,7 +6,7 @@ return {
 			"williamboman/mason-lspconfig.nvim",
 			"WhoIsSethDaniel/mason-tool-installer.nvim",
 		},
-		branch = "v1.x",
+		-- branch = "v1.x",
 		config = function()
 			-- import mason
 			local mason = require("mason")

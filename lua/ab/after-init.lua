@@ -7,6 +7,7 @@
 -- vim.g.nightflyTransparent = true
 
 vim.cmd([[colorscheme solarized-osaka]])
+-- vim.cmd([[colorscheme evergarden]])
 -- vim.cmd([[colorscheme rose-pine]])
 -- vim.cmd([[colorscheme poimandres]])
 -- vim.cmd([[colorscheme oh-lucy-evening]])
@@ -19,5 +20,6 @@ vim.keymap.set("n", "<leader>sr", function()
 	require("persistence").load()
 end, { desc = "Restore Session" })
 
-
 vim.keymap.set({ "n", "v" }, "<leader>cc", "<cmd>CodeCompanionChat Toggle<cr>", { noremap = true, silent = true })
+
+vim.diagnostic.config({ virtual_text = true, virtual_lines = false })

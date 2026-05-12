@@ -12,8 +12,6 @@ return {
 	config = function()
 		local keymap = vim.keymap
 
-		local lspconfig = require("lspconfig")
-
 		local capabilities = require("blink.cmp").get_lsp_capabilities()
 		-- local cap
 
@@ -23,6 +21,55 @@ return {
 			dynamicRegistration = false,
 			lineFoldingOnly = true,
 		}
+
+		-- Configure LSP servers
+		vim.lsp.config("phpactor", {
+			capabilities = capabilities,
+		})
+
+		vim.lsp.config("lua_ls", {
+			capabilities = capabilities,
+		})
+
+		vim.lsp.config("cssls", {
+			capabilities = capabilities,
+		})
+
+		vim.lsp.config("html", {
+			capabilities = capabilities,
+		})
+
+		vim.lsp.config("tailwindcss", {
+			capabilities = capabilities,
+		})
+
+		vim.lsp.config("astro", {
+			capabilities = capabilities,
+		})
+
+		vim.lsp.config("prismals", {
+			capabilities = capabilities,
+		})
+
+		vim.lsp.config("csharp_ls", {
+			capabilities = capabilities,
+		})
+		vim.lsp.config("ts_ls", {
+			capabilities = capabilities,
+		})
+
+		-- Enable LSP servers
+		vim.lsp.enable({
+			"phpactor",
+			"lua_ls",
+			"cssls",
+			"html",
+			"tailwindcss",
+			"astro",
+			"prismals",
+			"csharp_ls",
+			"ts_ls",
+		})
 
 		vim.api.nvim_create_autocmd("LspAttach", {
 			callback = function(args)
@@ -78,13 +125,16 @@ return {
 				client.server_capabilities.semanticTokensProvider = nil
 			end,
 		})
+		-- lspconfig.phpactor.setup({
+		-- 	capabilities = capabilities,
+		-- })
 
-		lspconfig.lua_ls.setup({
-			capabilities = capabilities,
-		})
-		lspconfig.ts_ls.setup({
-			capabilities = capabilities,
-		})
+		-- lspconfig.lua_ls.setup({
+		-- 	capabilities = capabilities,
+		-- })
+		-- lspconfig.ts_ls.setup({
+		-- 	capabilities = capabilities,
+		-- })
 		-- lspconfig.eslint.setup({
 		-- 	capabilities = capabilities,
 		-- 	settings = {
@@ -98,21 +148,24 @@ return {
 		-- 	},
 		-- 	root_dir = lspconfig.util.find_git_ancestor,
 		-- })
-		lspconfig.cssls.setup({
-			capabilities = capabilities,
-		})
-		lspconfig.html.setup({
-			capabilities = capabilities,
-		})
-		lspconfig.tailwindcss.setup({
-			capabilities = capabilities,
-		})
-		lspconfig.astro.setup({
-			capabilities = capabilities,
-		})
-		lspconfig.prismals.setup({
-			capabilities = capabilities,
-		})
+		-- lspconfig.cssls.setup({
+		-- 	capabilities = capabilities,
+		-- })
+		-- lspconfig.html.setup({
+		-- 	capabilities = capabilities,
+		-- })
+		-- lspconfig.tailwindcss.setup({
+		-- 	capabilities = capabilities,
+		-- })
+		-- lspconfig.astro.setup({
+		-- 	capabilities = capabilities,
+		-- })
+		-- lspconfig.prismals.setup({
+		-- 	capabilities = capabilities,
+		-- })
+		-- lspconfig.csharp_ls.setup({
+		-- 	capabilities = capabilities,
+		-- })
 
 		-- Angular -- start
 		-- local ok, mason_registry = pcall(require, "mason-registry")
